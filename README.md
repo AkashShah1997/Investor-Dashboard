@@ -1,69 +1,68 @@
-Investor Dashboard
-A simple full-stack web app to manage users, investments, transactions, and reports with admin and user roles.
+Investor Dashboard — Full Stack App
+A simple web application to manage users, portfolios, transactions, and reports.
+Built with Node.js (Express, SQLite) on the backend and React.js (MUI, Axios, Recharts) on the frontend.
 
-Backend (Node.js + Express + SQLite)
-How to Run Backend:
-Open terminal and go to the Backend folder
+✅ Project Setup Guide
+1️⃣ Clone the Project
+git clone https://github.com/your-repo/investor-dashboard.git
+cd investor-dashboard
 
-Install dependencies:
+🛠️ Backend Setup (Node.js + Express + SQLite)
+Step 1 — Go to Backend Folder
+cd Backend
 
-
+Step 2 — Install Dependencies
 npm install
-Initialize the database:
 
-
+Step 3 — Initialize the Database
 node database.js
-Insert dummy data (users, portfolios, transactions, reports):
 
+Step 4 — Seed Dummy Data (Users, Investments, Transactions, Reports)
 node dummydata.js
-Start the server:
 
-
+Step 5 — Start the Server
 node server.js
-The backend runs on http://localhost:5000
+Backend will run on: http://localhost:5000
 
-It uses express-session for auth
+💻 Frontend Setup (React.js)
+Step 1 — Open New Terminal and Go to Frontend Folder
+cd ../frontend
 
-Dummy users are seeded (admin, viewer, alice, bob, charlie)
-
-Frontend (React + MUI + Axios + Recharts)
-How to Run Frontend:
-Open a new terminal and go to the Frontend folder
-
-Install dependencies:
-
-
+Step 2 — Install Dependencies
 npm install
-Make sure proxy is set in package.json like this:
 
-
+Step 3 — Make Sure Proxy is Set in package.json
 "proxy": "http://localhost:5000"
-Start React App:
 
-
+Step 4 — Start React App
 npm start
-The frontend runs on http://localhost:3000
+Frontend will run on: http://localhost:3000
 
-Admin can see reports, download CSVs, and view all data
-
-Sample Users:
+👤 Sample Users to Login
 Username	Password	Role
 admin	admin123	Admin
 viewer	viewer123	Viewer
 alice	alicepass	User
 
-Routes Overview:
-/auth/login — Login
+📋 Main Features
+Admin Dashboard:
 
-/data/portfolio — Get Portfolio
+View all users’ portfolios and transactions
 
-/data/portfolio/admin — Get All Portfolios (Admin)
+Download investment reports in CSV format
 
-/data/portfolio/:username — Download CSV for a user (Admin)
+User Dashboard:
 
-/data/transactions — Get Transactions
+View your own portfolio and recent transactions
 
-/data/reports — Get Reports (Admin)
+🗂️ Backend API Routes
+Route	Description
+POST /auth/login	Login
+GET /data/portfolio	Get portfolio (user)
+GET /data/portfolio/admin	Get all portfolios (admin)
+GET /data/portfolio/:username	Download CSV for a user
+GET /data/transactions	Get transactions
+GET /data/reports	Get reports (admin)
 
-Quick Note
-Keep both frontend and backend running for the app to work
+📝 Important Notes
+Keep both frontend and backend running together
