@@ -127,6 +127,7 @@ export default function LoginPage() {
                 <Typography variant="body2" color="text.secondary">
                   Demo credentials: <br />
                   <strong>admin / admin123</strong>
+                  <strong>viewer / viewer123</strong>
                 </Typography>
               </Box>
             </form>
