@@ -126,7 +126,7 @@ export default function LoginPage() {
               <Box sx={{ mt: 2, textAlign: "center" }}>
                 <Typography variant="body2" color="text.secondary">
                   Demo credentials: <br />
-                  <strong>admin / admin123</strong>
+                  <strong>admin / admin123</strong> <br />
                   <strong>viewer / viewer123</strong>
                 </Typography>
               </Box>
