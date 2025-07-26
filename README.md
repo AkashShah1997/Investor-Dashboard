@@ -11,7 +11,7 @@ A modern web application to manage users, portfolios, transactions, and reports.
 ## 🚀 Live Demo
 
 The app is live and ready to use at:  
-**[http://18.118.23.137/](http://1 8.118.23.137/)**  
+**(http://1 8.118.23.137/)**  
 (Hosted on AWS)
 
 ---
