@@ -30,9 +30,10 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     setError("");
+    console.log("API URL:", process.env.REACT_APP_API_URL);
     try {
       const res = await axios.post(
-        "http://localhost:5000/auth/login",
+        `${process.env.REACT_APP_API_URL}/auth/login`,
         { username, password },
         { withCredentials: true }
       );

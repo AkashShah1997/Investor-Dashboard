@@ -5,10 +5,13 @@ const authRoutes = require('./routes/auth');
 const dataRoutes = require('./routes/data');
 
 const app = express();
+
+// ✅ Allow CORS from frontend running on port 82
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'http://3.145.4.69:82',
   credentials: true
 }));
+
 app.use(express.json());
 app.use(session({
   secret: 'investor_secret',

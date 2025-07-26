@@ -39,7 +39,7 @@ export default function ReportsPage() {
 
   const handleDownloadUserInvestments = (username) => {
     axios
-      .get(`http://localhost:5000/data/portfolio/${username}`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/data/portfolio/${username}`, { withCredentials: true })
       .then((res) => {
         const data = res.data;
         if (!data.length) return alert(`No investments found for ${username}`);

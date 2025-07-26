@@ -27,7 +27,7 @@ export default function TransactionsPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/data/transactions", { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/data/transactions`, { withCredentials: true })
       .then((res) => setTransactions(res.data))
       .catch(() => setTransactions([]))
       .finally(() => setLoading(false));

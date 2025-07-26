@@ -17,14 +17,10 @@ import {
   Divider,
   Chip,
   Skeleton,
-  TextField,
-  InputAdornment,
-  IconButton,
 } from "@mui/material";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 import { useAuth } from "../context/AuthContext";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import SearchIcon from "@mui/icons-material/Search";
 import SearchBar from "../components/SearchBar";
 
 export default function PortfolioPage() {
@@ -36,7 +32,7 @@ export default function PortfolioPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/data/portfolio", { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/data/portfolio`, { withCredentials: true })
       .then((res) => setPortfolio(res.data))
       .catch(() => setPortfolio([]))
       .finally(() => setLoading(false));
@@ -57,14 +53,14 @@ export default function PortfolioPage() {
   if (!user) return null;
 
   return (
-    <Container sx={{ mt: 4 }}>
+    <Container maxWidth="lg" sx={{ mt: 4 }}>
       <Fade in>
         <Box>
           <Box display="flex" alignItems="center" mb={3}>
             <Avatar sx={{ bgcolor: "#1976d2", mr: 2 }}>
               <AccountBalanceWalletIcon />
             </Avatar>
-            <Typography variant="h4" fontWeight={700}>
+            <Typography variant="h4" fontWeight={700} color="#1976d2">
               Portfolio
             </Typography>
             <Chip
@@ -113,9 +109,9 @@ function AdminPortfolioView({ portfolio }) {
       {Object.keys(grouped).map((username) => {
         const total = grouped[username].reduce((sum, i) => sum + Number(i.value), 0);
         return (
-          <Grid item xs={12} md={6} key={username}>
+          <Grid item xs={12} sm={6} md={4} key={username}>
             <Fade in>
-              <Card elevation={6} sx={{ borderRadius: 3 }}>
+              <Card elevation={6} sx={{ borderRadius: 3, height: "100%" }}>
                 <CardContent>
                   <Box display="flex" alignItems="center" mb={2}>
                     <Avatar sx={{ bgcolor: "#1976d2", mr: 2 }}>{username[0].toUpperCase()}</Avatar>
@@ -144,7 +140,7 @@ function AdminPortfolioView({ portfolio }) {
                       ))}
                     </TableBody>
                   </Table>
-                  <ResponsiveContainer width="100%" height={180}>
+                  <ResponsiveContainer width="100%" height={140}>
                     <BarChart data={grouped[username]}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="investment_name" />
@@ -194,7 +190,7 @@ function UserPortfolioView({ portfolio }) {
       {portfolio.map((item) => (
         <Grid item xs={12} sm={6} md={4} key={item.id}>
           <Fade in>
-            <Card elevation={4} sx={{ borderRadius: 3 }}>
+            <Card elevation={4} sx={{ borderRadius: 3, height: "100%" }}>
               <CardContent>
                 <Typography variant="subtitle2" color="text.secondary" gutterBottom>
                   Investment

@@ -11,7 +11,6 @@ function ensureAuthenticated(req, res, next) {
   }
 }
 
-// 🧾 Get Portfolio (role-based)
 router.get("/portfolio", ensureAuthenticated, (req, res) => {
   const { id, role } = req.session.user;
 
@@ -29,7 +28,6 @@ router.get("/portfolio", ensureAuthenticated, (req, res) => {
   });
 });
 
-// 📤 Export summed investments by username (for admin)
 router.get("/portfolio/:username", ensureAuthenticated, (req, res) => {
   const { role } = req.session.user;
   const { username } = req.params;
@@ -53,7 +51,6 @@ router.get("/portfolio/:username", ensureAuthenticated, (req, res) => {
 });
 
 
-// 📄 Get Reports (admin only)
 router.get("/reports", ensureAuthenticated, (req, res) => {
   const { role } = req.session.user;
   
@@ -73,7 +70,6 @@ router.get("/reports", ensureAuthenticated, (req, res) => {
   });
 });
 
-// 💸 Get Transactions (admin = all, user = own)
 router.get("/transactions", ensureAuthenticated, (req, res) => {
   const { id, role } = req.session.user;
 
